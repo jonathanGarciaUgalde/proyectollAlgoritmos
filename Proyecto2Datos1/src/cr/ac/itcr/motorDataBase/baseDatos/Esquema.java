@@ -1,10 +1,13 @@
 package cr.ac.itcr.motorDataBase.baseDatos;
 
+import cr.ac.itcr.structures.ListaDoble;
+
 public class Esquema {
-	private String nombre;
-	private String localizacion;
-	private String share_secret;
-	private boolean join;
+	public String nombre;
+	public String localizacion;
+	public String share_secret;
+	public boolean join;
+	public ListaDoble indices=new ListaDoble();
 	
 	
 	/**
@@ -14,7 +17,7 @@ public class Esquema {
 	public Esquema(String nombre, String localizacion, String share_secret){
 		this.nombre=nombre;
 		this.localizacion=localizacion;
-		this.share_secret=share_secret;	
+		this.share_secret=share_secret;
 	}
 	
 	/**
