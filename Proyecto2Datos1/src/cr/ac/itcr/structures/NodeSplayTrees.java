@@ -7,7 +7,7 @@ package cr.ac.itcr.structures;
  * @author Jonathan Garcia
  *
  */
-public class NodeSplayTrees {
+public class NodeSplayTrees  {
   
 	NodeSplayTrees  left, right, parent;
 	     int element;
