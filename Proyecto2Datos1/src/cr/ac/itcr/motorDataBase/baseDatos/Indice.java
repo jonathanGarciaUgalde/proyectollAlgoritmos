@@ -11,8 +11,16 @@ public class Indice {
 		}else if(tipo.compareTo("int")==0){
 			int tipo_int=Integer.parseInt(tipo);
 			this.tipo=tipo_int;
+		}else if(tipo.compareTo("float")==0){
+			float tipo_float=Float.parseFloat(tipo);
+			this.tipo=tipo_float;	
+		}else if(tipo.compareTo("long")==0){
+			long tipo_long=Long.parseLong(tipo);
+			this.tipo=tipo_long;
+		}else if(tipo.compareTo("double")==0){
+			double tipo_double=Double.parseDouble(tipo);
+			this.tipo=tipo_double;	
 		}
-		
 	}
 	
 }
