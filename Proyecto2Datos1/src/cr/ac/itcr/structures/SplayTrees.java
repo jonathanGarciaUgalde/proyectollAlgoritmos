@@ -15,7 +15,7 @@ public class SplayTrees <T extends Comparable<T>> {
 	     private int count = 0;
 	 
 	     /** Constructor **/
-	 public SplayTrees<T>()
+	 public SplayTrees()
 	     {
 	         root = null;
 	     }
@@ -42,7 +42,7 @@ public class SplayTrees <T extends Comparable<T>> {
 	         while (z != null)
 	         {
 	             p = z;
-	             if (ele < p.element)
+	             if ((ele.compareTo(p.element))<0)
 	                 z = z.right;
 	             else
 	                 z = z.left;
@@ -52,7 +52,7 @@ public class SplayTrees <T extends Comparable<T>> {
 	         z.parent = p;
 	         if (p == null)
 	             root = z;
-	         else if (ele < p.element)
+	         else if ((ele.compareTo(p.element))<0)
 	             p.right = z;
 	         else
 	             p.left = z;
@@ -219,9 +219,9 @@ public class SplayTrees <T extends Comparable<T>> {
 	    	 NodeSplayTrees<T>  z = root;
 	         while (z != null)
 	         {
-	             if (ele < z.element)
+	             if ((ele.compareTo(z.element))<0)
 	                 z = z.right;
-	             else if (ele  > z.element)
+	             else if ((ele.compareTo(z.element))>0)
 	                 z = z.left;
 	             else
 	                 return z;
@@ -250,7 +250,7 @@ public class SplayTrees <T extends Comparable<T>> {
 	     {
 	         preorder(root);
 	     }
-	     private void preorder(NodeSplayTrees  r)
+	     private void preorder(NodeSplayTrees<T>  r)
 	     {
 	         if (r != null)
 	         {
@@ -288,7 +288,7 @@ public long tiempoBusqueda(){
 }
 
  public  static void main(String arv[]){
-	 SplayTrees<T> st= new SplayTrees<T>();
+	 SplayTrees st= new SplayTrees() ;
 	 
 	 for(int i=1000; i>1; i--){
 		 st.insert(i);	 
