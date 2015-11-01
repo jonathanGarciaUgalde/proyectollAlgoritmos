@@ -7,6 +7,7 @@ public class Esquema {
 	public String localizacion;
 	public String share_secret;
 	public boolean join;
+	public ListaDoble indices=new ListaDoble();
 	
 	
 	/**
@@ -28,5 +29,13 @@ public class Esquema {
 		return join;
 	}
 	
+	
+	public void agregarIndice(Indice nuevo_indice){
+		this.indices.agregarFinal(nuevo_indice);
+	}
+	
+	public void borrarIndice(Indice indice_a_borrar){
+		this.indices.borrar(indice_a_borrar);
+	}
 	
 }
