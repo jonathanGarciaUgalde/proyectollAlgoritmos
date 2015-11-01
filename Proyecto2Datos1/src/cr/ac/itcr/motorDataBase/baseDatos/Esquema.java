@@ -7,7 +7,6 @@ public class Esquema {
 	public String localizacion;
 	public String share_secret;
 	public boolean join;
-	public ListaDoble indices=new ListaDoble();
 	
 	
 	/**
