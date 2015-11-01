@@ -7,15 +7,15 @@ package cr.ac.itcr.structures;
  * @author Jonathan Garcia
  *
  */
-public class SplayTrees {
+public class SplayTrees <T extends Comparable<T>> {
 	
 	long tinicioInsert,tfinInsert,tinicioborrado,tfinborrado, iniciobusqueda,finbusqueda;
 //se  declara un nodo privado  para que no haya  acceso  sino  es por los metodos
-	  private NodeSplayTrees  root;
+	  private NodeSplayTrees<T>  root;
 	     private int count = 0;
 	 
 	     /** Constructor **/
-	 public SplayTrees()
+	 public SplayTrees<T>()
 	     {
 	         root = null;
 	     }
@@ -33,12 +33,12 @@ public class SplayTrees {
 	     }
 	 
 	     /** function to insert element */
-	     public void insert(int ele)
+	     public void insert (T ele)
 	     {
 	    	 tinicioInsert=System.nanoTime();
 	    	 
-	    	 NodeSplayTrees  z = root;
-	         NodeSplayTrees  p = null;
+	    	 NodeSplayTrees<T>  z = root;
+	         NodeSplayTrees<T>  p = null;
 	         while (z != null)
 	         {
 	             p = z;
@@ -47,7 +47,7 @@ public class SplayTrees {
 	             else
 	                 z = z.left;
 	         }
-	         z = new NodeSplayTrees ();
+	         z = new NodeSplayTrees<T> ();
 	         z.element = ele;
 	         z.parent = p;
 	         if (p == null)
@@ -61,7 +61,7 @@ public class SplayTrees {
 	     tfinInsert= System.nanoTime();
 	     }
 	     /** rotate a la  izquierda **/
-	     public void makeLeftChildParent(NodeSplayTrees c, NodeSplayTrees p)
+	     public void makeLeftChildParent(NodeSplayTrees<T> c, NodeSplayTrees<T> p)
 	     {
 	         if ((c == null) || (p == null) || (p.left != c) || (c.parent != p))
 	             throw new RuntimeException("WRONG");
@@ -84,7 +84,7 @@ public class SplayTrees {
 	 
 	     //metodos  para  que se  realice  la rotacion
 	     /** rotate **/
-	     public void makeRightChildParent(NodeSplayTrees c, NodeSplayTrees p)
+	     public void makeRightChildParent(NodeSplayTrees<T> c, NodeSplayTrees<T> p)
 	     {
 	         if ((c == null) || (p == null) || (p.right != c) || (c.parent != p))
 	             throw new RuntimeException("WRONG");
@@ -104,12 +104,12 @@ public class SplayTrees {
 	     }
 	 
 	     /** function splay **/
-	     private void Splay(NodeSplayTrees x)
+	     private void Splay(NodeSplayTrees<T> x)
 	     {
 	         while (x.parent != null)
 	         {
-	        	 NodeSplayTrees  Parent = x.parent;
-	        	 NodeSplayTrees  GrandParent = Parent.parent;
+	        	 NodeSplayTrees<T>  Parent = x.parent;
+	        	 NodeSplayTrees<T>  GrandParent = Parent.parent;
 	             if (GrandParent == null)
 	             {
 	                 if (x == Parent.left)
@@ -151,16 +151,16 @@ public class SplayTrees {
 	     }
 	 
 	     /** function to remove element **/
-	     public void remove(int ele)
+	     public void remove(T ele)
 	     {
 	    	 tinicioborrado=System.nanoTime();
-	    	 NodeSplayTrees  node = findNode(ele);
+	    	 NodeSplayTrees<T>  node = findNode(ele);
 	        remove(node);
 	     tfinborrado=System.nanoTime();
 	     }
 	 
 	     /** function to remove node **/
-	     private void remove(NodeSplayTrees  node)
+	     private void remove(NodeSplayTrees<T>  node)
 	     {
 	         if (node == null)
 	             return;
@@ -168,7 +168,7 @@ public class SplayTrees {
 	         Splay(node);
 	         if( (node.left != null) && (node.right !=null))
 	         { 
-	        	 NodeSplayTrees  min = node.left;
+	        	 NodeSplayTrees <T> min = node.left;
 	             while(min.right!=null)
 	                 min = min.right;
 	 
@@ -205,7 +205,7 @@ public class SplayTrees {
 	     }
 	 
 	     /** Functions to search for an element **/
-	     public boolean search(int val)
+	     public boolean search(T val)
 	     
 	     {
 	     
@@ -214,9 +214,9 @@ public class SplayTrees {
 	         
 	         }
 	     
-	     private NodeSplayTrees findNode(int ele)
+	     private NodeSplayTrees<T> findNode(T ele)
 	     {iniciobusqueda=System.nanoTime();
-	    	 NodeSplayTrees  z = root;
+	    	 NodeSplayTrees<T>  z = root;
 	         while (z != null)
 	         {
 	             if (ele < z.element)
@@ -235,7 +235,7 @@ public class SplayTrees {
 	     {
 	         inorder(root);
 	     }
-	     private void inorder(NodeSplayTrees r)
+	     private void inorder(NodeSplayTrees<T> r)
 	     {
 	         if (r != null)
 	         {
@@ -265,7 +265,7 @@ public class SplayTrees {
 	     {
 	         postorder(root);
 	     }
-	     private void postorder(NodeSplayTrees r)
+	     private void postorder(NodeSplayTrees<T> r)
 	     {
 	         if (r != null)
 	         {
@@ -288,7 +288,7 @@ public long tiempoBusqueda(){
 }
 
  public  static void main(String arv[]){
-	 SplayTrees st= new SplayTrees();
+	 SplayTrees<T> st= new SplayTrees<T>();
 	 
 	 for(int i=1000; i>1; i--){
 		 st.insert(i);	 
