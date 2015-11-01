@@ -7,23 +7,23 @@ package cr.ac.itcr.structures;
  * @author Jonathan Garcia
  *
  */
-public class NodeSplayTrees  {
+public class NodeSplayTrees <T extends Comparable<T>> {
   
 	NodeSplayTrees  left, right, parent;
-	     int element;
+	     T element;
 	 
 	     /** Constructor **/
-	     public NodeSplayTrees ()
+	     public NodeSplayTrees<T> ()
 	     {
-	         this(0, null, null, null);
+	         this(null , null, null, null);
 	     }          
 	     /** Constructor **/
-	     public NodeSplayTrees (int ele)
+	     public NodeSplayTrees <T> (T ele)
 	     {
 	         this(ele, null, null, null);
 	     } 
 	     /** Constructor **/
-	     public NodeSplayTrees (int ele,NodeSplayTrees  left, NodeSplayTrees  right, NodeSplayTrees  parent)
+	     public NodeSplayTrees <T> (T ele,NodeSplayTrees  left, NodeSplayTrees  right, NodeSplayTrees  parent)
 	     {
 	         this.left = left;
 	         this.right = right;
