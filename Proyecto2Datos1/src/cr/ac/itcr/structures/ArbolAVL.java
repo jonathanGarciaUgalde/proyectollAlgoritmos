@@ -1,20 +1,20 @@
 package cr.ac.itcr.structures;
 
-public class ArbolAVL {
-	private NodoArbolAVL raiz;
+public class ArbolAVL <T extends Comparable<T>> {
+	private NodoArbolAVL<T> raiz;
 	public ArbolAVL(){
 		raiz=null;
 	}
 	
 	//Método de buscar
-	public NodoArbolAVL buscar(int d, NodoArbolAVL r){
+	public NodoArbolAVL<T> buscar(T d, NodoArbolAVL<T> r){
 		if (raiz==null){
 			return null;
 		}
 		else if(r.dato==d){
 			return r;
 		}
-		else if(r.dato<d){
+		else if((r.dato.compareTo(d))<0){
 			return buscar(d,r.hijoDerecho);
 		}
 		else{
@@ -23,7 +23,7 @@ public class ArbolAVL {
 	}
 	
 	//Obtener el factor de equilibrio
-	public int obtenerFE(NodoArbolAVL x){
+	public int obtenerFE(NodoArbolAVL<T> x){
 		if (x==null){
 			return -1;
 		}
@@ -32,13 +32,13 @@ public class ArbolAVL {
 		}
 	}
 	
-	public NodoArbolAVL obtenerRaiz(){
+	public NodoArbolAVL<T> obtenerRaiz(){
 		return raiz;
 	}
 	
 	//Rotación simple izquierda
-	public NodoArbolAVL rotacionIzquierda(NodoArbolAVL c){
-		NodoArbolAVL auxiliar = c.hijoIzquierdo;
+	public NodoArbolAVL<T> rotacionIzquierda(NodoArbolAVL<T> c){
+		NodoArbolAVL<T> auxiliar = c.hijoIzquierdo;
 		c.hijoIzquierdo=auxiliar.hijoDerecho;
 		auxiliar.hijoDerecho=c;
 		c.fe=Math.max(obtenerFE(c.hijoIzquierdo), obtenerFE(c.hijoDerecho))+1;
@@ -47,8 +47,8 @@ public class ArbolAVL {
 	}
 	
 	//Rotación simple derecha
-		public NodoArbolAVL rotacionDerecha(NodoArbolAVL c){
-			NodoArbolAVL auxiliar = c.hijoDerecho;
+		public NodoArbolAVL<T> rotacionDerecha(NodoArbolAVL<T> c){
+			NodoArbolAVL<T> auxiliar = c.hijoDerecho;
 			c.hijoDerecho=auxiliar.hijoIzquierdo;
 			auxiliar.hijoIzquierdo=c;
 			c.fe=Math.max(obtenerFE(c.hijoIzquierdo), obtenerFE(c.hijoDerecho))+1;
@@ -57,31 +57,31 @@ public class ArbolAVL {
 		}
 		
 	//Rotación doble derecha
-		public NodoArbolAVL rotacionDobleIzquierda (NodoArbolAVL c){
-			NodoArbolAVL temporal;
+		public NodoArbolAVL<T> rotacionDobleIzquierda (NodoArbolAVL<T> c){
+			NodoArbolAVL<T> temporal;
 			c.hijoIzquierdo = rotacionDerecha(c.hijoIzquierdo);
 			temporal = rotacionIzquierda(c);
 			return temporal;
 		}
 		
 	//Rotación doble izquierda
-		public NodoArbolAVL rotacionDobleDerecha (NodoArbolAVL c){
-			NodoArbolAVL temporal;
+		public NodoArbolAVL<T> rotacionDobleDerecha (NodoArbolAVL<T> c){
+			NodoArbolAVL<T> temporal;
 			c.hijoDerecho = rotacionIzquierda(c.hijoDerecho);
 			temporal = rotacionDerecha(c);
 			return temporal;
 		}
 	//Método para insertar AVL
-		public NodoArbolAVL insertarAVL(NodoArbolAVL nuevo, NodoArbolAVL subAr){
-			NodoArbolAVL nuevoPadre=subAr;
-			if(nuevo.dato<subAr.dato){
+		public NodoArbolAVL<T> insertarAVL(NodoArbolAVL<T> nuevo, NodoArbolAVL<T> subAr){
+			NodoArbolAVL<T> nuevoPadre=subAr;
+			if((nuevo.dato.compareTo(subAr.dato))<0){
 				if(subAr.hijoIzquierdo==null){
 					subAr.hijoIzquierdo=nuevo;
 				}
 				else{
 					subAr.hijoIzquierdo=insertarAVL(nuevo,subAr.hijoIzquierdo);
 					if((obtenerFE(subAr.hijoIzquierdo)- obtenerFE(subAr.hijoDerecho)==2)){
-						if(nuevo.dato<subAr.hijoIzquierdo.dato){
+						if((nuevo.dato.compareTo(subAr.hijoIzquierdo.dato))<0){
 							nuevoPadre=rotacionIzquierda(subAr);
 						}
 						else{
@@ -90,14 +90,14 @@ public class ArbolAVL {
 					}
 				}
 			}
-			else if (nuevo.dato>subAr.dato){
+			else if ((nuevo.dato.compareTo(subAr.dato))>0){
 				if (subAr.hijoDerecho==null){
 					subAr.hijoDerecho=nuevo;
 				}
 				else{
 					subAr.hijoDerecho=insertarAVL(nuevo,subAr.hijoDerecho);
 					if((obtenerFE(subAr.hijoDerecho)- obtenerFE(subAr.hijoIzquierdo)==2)){
-						if(nuevo.dato>subAr.hijoDerecho.dato){
+						if((nuevo.dato.compareTo(subAr.hijoDerecho.dato))>0){
 							nuevoPadre=rotacionDerecha(subAr);
 						}
 						else{
@@ -124,8 +124,8 @@ public class ArbolAVL {
 		}
 		
 		//Método insertar 
-		public void insertar (int d){
-			NodoArbolAVL nuevo = new NodoArbolAVL(d);
+		public void insertar (T d){
+			NodoArbolAVL<T> nuevo = new NodoArbolAVL<T>(d);
 			if (raiz==null){
 				raiz=nuevo;
 			}
@@ -135,7 +135,7 @@ public class ArbolAVL {
 		}
 		
 		//Método para recorrer el árbol InOrden
-		public void inOrden(NodoArbolAVL r){
+		public void inOrden(NodoArbolAVL<T> r){
 			if(r!=null){
 				inOrden(r.hijoIzquierdo);
 				System.out.println(r.dato+", ");
@@ -144,7 +144,7 @@ public class ArbolAVL {
 		}
 		
 		//Método para recorrer el árbol en preOrden
-		public void preOrden (NodoArbolAVL r){
+		public void preOrden (NodoArbolAVL<T> r){
 			if (r!=null){
 				System.out.println(r.dato + ", ");
 				preOrden(r.hijoIzquierdo);
@@ -153,7 +153,7 @@ public class ArbolAVL {
 		}
 		
 		//Método para recorrer el árbol en postOrden
-		public void  postOrden (NodoArbolAVL r){
+		public void  postOrden (NodoArbolAVL<T> r){
 			if (r!=null){
 				postOrden(r.hijoIzquierdo);
 				postOrden(r.hijoDerecho);
