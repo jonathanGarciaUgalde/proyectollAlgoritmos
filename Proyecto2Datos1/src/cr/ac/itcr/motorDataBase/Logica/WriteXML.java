@@ -8,6 +8,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import cr.ac.itcr.motorDataBase.baseDatos.Esquema;
+import cr.ac.itcr.motorDataBase.baseDatos.Indice;
 import cr.ac.itcr.structures.*;
 
 import org.w3c.dom.*;
@@ -78,8 +79,7 @@ public class WriteXML {
 //		  }
 //		  
 //		}
-	public static void estructurar(ListaDoble esquemas){
-			Esquema primer_elemento=(Esquema) esquemas.inicio.dato;
+	public  void estructurar(ListaDoble esquemas){
 		try {
 
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -91,16 +91,29 @@ public class WriteXML {
 			doc.appendChild(rootElement);
 			
 			//enlistar los esquemas 
-			int i=0;
-			int j=0;
-			while (i!=esquemas.length()){
-				//enlistar los indices
-				while(j!=primer_elemento.indices.length()){
-					System.out.print(primer_elemento.indices.inicio.dato);
-					j++;
+			Esquema primer_esquema=(Esquema) esquemas.inicio.dato;
+			while (primer_esquema!=null){
+				Element esquema = doc.createElement(primer_esquema.nombre);
+				rootElement.appendChild(esquema);
+				for(Indice primer_Indice=(Indice) primer_esquema.indices.inicio.dato;primer_Indice!=null;primer_Indice=(Indice) primer_esquema.indices.inicio.siguiente.dato){
+					Element indice = doc.createElement(primer_Indice.nombre);
+					rootElement.appendChild(indice);
 				}
+				primer_esquema=(Esquema) esquemas.inicio.siguiente.dato;
+				
+
 			}
-			
+			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+			Transformer transformer = transformerFactory.newTransformer();
+			DOMSource source = new DOMSource(doc);
+			StreamResult result = new StreamResult(new File("prueba.xml"));
+
+			// Output to console for testing
+			// StreamResult result = new StreamResult(System.out);
+
+			transformer.transform(source, result);
+
+			System.out.println("File saved!");
 			
 		
 			
@@ -109,9 +122,8 @@ public class WriteXML {
 			
 		} catch (ParserConfigurationException pce) {
 		  pce.printStackTrace();
+		} catch (TransformerException tfe) {
+		  tfe.printStackTrace();
 		}
-//		} catch (TransformerException tfe) {
-//		  tfe.printStackTrace();
-//		}
 	}
 }

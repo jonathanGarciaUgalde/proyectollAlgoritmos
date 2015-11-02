@@ -31,7 +31,7 @@ public class Esquema {
 	
 	
 	public void agregarIndice(Indice nuevo_indice){
-		this.indices.agregarFinal(nuevo_indice);
+		this.indices.agregarInicio(nuevo_indice);
 	}
 	
 	public void borrarIndice(Indice indice_a_borrar){
