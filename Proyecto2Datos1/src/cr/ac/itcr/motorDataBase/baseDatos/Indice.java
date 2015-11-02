@@ -7,6 +7,7 @@ public class Indice {
 	public Object tipo;
 	public int largo;
 	public String nombre;
+	public ListaDoble padres;
 	
 	/**
 	 * Constructor del Indice
@@ -19,7 +20,9 @@ public class Indice {
 	}
 	
 	
-	
+	public void agregarEsquema(Esquema padre_esquema){
+		this.padres.agregarFinal(padre_esquema);
+	}
 	
 	
 	

@@ -82,42 +82,6 @@ public class WriteXML {
 	public  void estructurar(ListaDoble esquemas){
 		try {
 
-			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-			
-			// elemento raíz
-			Document doc = docBuilder.newDocument();
-			Element rootElement = doc.createElement("esquemas");
-			doc.appendChild(rootElement);
-			
-			//enlistar los esquemas 
-			Esquema primer_esquema=(Esquema) esquemas.inicio.dato;
-			while (primer_esquema!=null){
-				Element esquema = doc.createElement(primer_esquema.nombre);
-				rootElement.appendChild(esquema);
-				for(Indice primer_Indice=(Indice) primer_esquema.indices.inicio.dato;primer_Indice!=null;primer_Indice=(Indice) primer_esquema.indices.inicio.siguiente.dato){
-					Element indice = doc.createElement(primer_Indice.nombre);
-					rootElement.appendChild(indice);
-				}
-				primer_esquema=(Esquema) esquemas.inicio.siguiente.dato;
-				
-
-			}
-			TransformerFactory transformerFactory = TransformerFactory.newInstance();
-			Transformer transformer = transformerFactory.newTransformer();
-			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File("prueba.xml"));
-
-			// Output to console for testing
-			// StreamResult result = new StreamResult(System.out);
-
-			transformer.transform(source, result);
-
-			System.out.println("File saved!");
-			
-		
-			
-			
 			
 			
 		} catch (ParserConfigurationException pce) {
