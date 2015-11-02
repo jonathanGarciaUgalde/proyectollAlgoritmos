@@ -1,7 +1,7 @@
 package cr.ac.itcr.motorDataBase.GUI;
 
-import cr.ac.itcr.motorDataBase.baseDatos.Esquema;
-import cr.ac.itcr.motorDataBase.baseDatos.Indice;
+import cr.ac.itcr.motorDataBase.Logica.*;
+import cr.ac.itcr.motorDataBase.baseDatos.*;
 import cr.ac.itcr.structures.*;
 
 public class Pruebas {
@@ -22,6 +22,11 @@ public class Pruebas {
 		System.out.print(base1.indices.mostrarInicioFin());
 		System.out.println();
 		System.out.println(Nombre.nombre);
+		System.out.println();
+		System.out.println(prueba.length());
+		
+		WriteXML xml=new WriteXML();
+		xml.estructurar(prueba);
 	}
 	
 	

@@ -2,7 +2,7 @@ package cr.ac.itcr.structures;
 
 public class ListaDoble {
 	// se  declara  un nodo inicial de la lista  y uno final.
-	private NodoDoble inicio,fin;
+	public NodoDoble inicio,fin;
 
 	public ListaDoble(){
 		// le asigna por  defecto a los  nodos  creados  que apunteen a null.
@@ -145,7 +145,48 @@ public class ListaDoble {
 			}
 		}
 
-		
+	public int length(){
+		NodoDoble auxiliar = inicio;
+		int contador = 0;
+		if(inicio==null && fin==null){
+			return contador;
+		}
+		if(inicio==fin){
+			return 1;
+		}else{
+			while(auxiliar!=null){
+				contador=contador+1;
+				auxiliar=auxiliar.siguiente;
+			}
+			return contador;
+		}
+	}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	/**
 	 * metodo   se encarga de  asignar todos  los elementos  de un arreglo (ya sea un arreglo numeral o String)   y asignarlos a una lista doblemente  enlazada   
