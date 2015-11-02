@@ -7,7 +7,7 @@ import cr.ac.itcr.structures.*;
 public class Pruebas {
 
 	public static void main(String[] args) {
-		// Esto es solo para probar
+		// Esto es solo para probar 
 		
 		ListaDoble prueba= new ListaDoble();
 		Esquema base1= new Esquema("Base1", "Mis Documentos", "kldjfdvndufh656<<<d");

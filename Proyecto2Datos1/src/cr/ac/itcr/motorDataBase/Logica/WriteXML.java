@@ -90,7 +90,7 @@ public class WriteXML {
 			Element rootElement = doc.createElement("esquemas");
 			doc.appendChild(rootElement);
 			
-			//enlistar los esquemas
+			//enlistar los esquemas 
 			int i=0;
 			int j=0;
 			while (i!=esquemas.length()){
