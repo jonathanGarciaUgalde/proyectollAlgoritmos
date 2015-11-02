@@ -6,7 +6,7 @@ import cr.ac.itcr.motorDataBase.Logica.ST;
 import java.util.*;
 import java.lang.reflect.Array;
 public class tablasHash <K, V> implements ST<K, V> {
-	    private static final int MIN_CAP = 11; // The minimum size of the array; when smaller than this, no down-sizing will occur.
+	    private static final int MIN_CAP = 11; // Thexxx minimum size of the array; when smaller than this, no down-sizing will occur.
 
 	    private Pair[] arr; // The array holding all the key/value pairs
 	    private int size; // The current number of elements.
