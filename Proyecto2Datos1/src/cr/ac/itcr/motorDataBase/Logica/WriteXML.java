@@ -88,17 +88,17 @@ public class WriteXML {
 			Element rootElement = doc.createElement("esquemas");
 			doc.appendChild(rootElement);
 			
-			Esquema primer_esquema=(Esquema) esquemas.inicio.dato;
-			Esquema ultimo_esquema=(Esquema) esquemas.fin.dato;
+			NodoDoble nodoIterador=(NodoDoble) esquemas.inicio;
+			int i=0;
 			
-			while(primer_esquema!=ultimo_esquema){
+			while(i!=esquemas.length()){
+			Esquema primer_esquema=(Esquema) nodoIterador.dato;
 			Element esquema = doc.createElement(primer_esquema.nombre);
 			rootElement.appendChild(esquema);
-			primer_esquema=(Esquema) esquemas.inicio.siguiente.dato;
+			nodoIterador=(NodoDoble) nodoIterador.siguiente;
+			i++;
 			}
-			Element esquema = doc.createElement(ultimo_esquema.nombre);
-			rootElement.appendChild(esquema);
-			
+
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			DOMSource source = new DOMSource(doc);
