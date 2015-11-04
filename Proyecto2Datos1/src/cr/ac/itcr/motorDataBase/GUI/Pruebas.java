@@ -40,7 +40,13 @@ public class Pruebas {
 		
 		WriteXML xml=new WriteXML();
 		xml.estructurarEsquemas(prueba);
+		
+		Object tipo;
+		tipo=2.0;
+		System.out.println(tipo.getClass().getTypeName());
 	}
+	
+	
 	
 	
 

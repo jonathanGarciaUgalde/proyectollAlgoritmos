@@ -1,7 +1,12 @@
 package cr.ac.itcr.structures;
 
 public class ArbolAVL <T extends Comparable<T>> {
-	private NodoArbolAVL<T> raiz;
+	public NodoArbolAVL<T> raiz;
+	public Object tipo;
+	public int largo;
+	public String nombre;
+	public ListaDoble padres;
+	
 	public ArbolAVL(){
 		raiz=null;
 	}
