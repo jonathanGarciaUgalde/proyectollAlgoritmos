@@ -1,5 +1,8 @@
 package cr.ac.itcr.structures;
 
+import cr.ac.itcr.motorDataBase.baseDatos.Esquema;
+import cr.ac.itcr.motorDataBase.baseDatos.Indice;
+
 public class ArbolAVL <T extends Comparable<T>> {
 	public NodoArbolAVL<T> raiz;
 	public Object tipo;
@@ -25,6 +28,17 @@ public class ArbolAVL <T extends Comparable<T>> {
 		else{
 			return buscar(d,r.hijoIzquierdo);
 		}
+	}
+	
+	
+	//Agregar esquemas padres
+	public void agregarEsquema(Esquema esquema){
+		this.padres.agregarFinal(esquema);
+	}
+	
+	//Borrar esquema padre
+	public void borrarEsquema(Esquema esquema){
+		this.padres.borrar(esquema);
 	}
 	
 	//Obtener el factor de equilibrio
