@@ -133,9 +133,14 @@ public class ArbolAVL <T extends Comparable<T>> {
 			NodoArbolAVL<T> nuevo = new NodoArbolAVL<T>(d);
 			if (raiz==null){
 				raiz=nuevo;
+				this.tipo=d.getClass().getTypeName();
 			}
 			else{
-				raiz=insertarAVL(nuevo,raiz);
+				if((d.getClass().getTypeName().compareTo(tipo.getClass().getTypeName())==0)){
+					raiz=insertarAVL(nuevo,raiz);
+				}else{
+					System.out.println("Error en el tipo de dato");
+				}
 			}
 		}
 		
