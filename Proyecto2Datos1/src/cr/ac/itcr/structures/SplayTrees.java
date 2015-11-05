@@ -9,7 +9,6 @@ package cr.ac.itcr.structures;
  */
 public class SplayTrees <T extends Comparable<T>> {
 	
-	long tinicioInsert,tfinInsert,tinicioborrado,tfinborrado, iniciobusqueda,finbusqueda;
 //se  declara un nodo privado  para que no haya  acceso  sino  es por los metodos
 	  private NodeSplayTrees<T>  root;
 	     private int count = 0;
@@ -35,8 +34,6 @@ public class SplayTrees <T extends Comparable<T>> {
 	     /** function to insert element */
 	     public void insert (T ele)
 	     {
-	    	 tinicioInsert=System.nanoTime();
-	    	 
 	    	 NodeSplayTrees<T>  z = root;
 	         NodeSplayTrees<T>  p = null;
 	         while (z != null)
@@ -58,7 +55,6 @@ public class SplayTrees <T extends Comparable<T>> {
 	             p.left = z;
 	         Splay(z);
 	         count++;
-	     tfinInsert= System.nanoTime();
 	     }
 	     /** rotate a la  izquierda **/
 	     public void makeLeftChildParent(NodeSplayTrees<T> c, NodeSplayTrees<T> p)
@@ -153,10 +149,8 @@ public class SplayTrees <T extends Comparable<T>> {
 	     /** function to remove element **/
 	     public void remove(T ele)
 	     {
-	    	 tinicioborrado=System.nanoTime();
 	    	 NodeSplayTrees<T>  node = findNode(ele);
 	        remove(node);
-	     tfinborrado=System.nanoTime();
 	     }
 	 
 	     /** function to remove node **/
@@ -215,7 +209,7 @@ public class SplayTrees <T extends Comparable<T>> {
 	         }
 	     
 	     private NodeSplayTrees<T> findNode(T ele)
-	     {iniciobusqueda=System.nanoTime();
+	     {
 	    	 NodeSplayTrees<T>  z = root;
 	         while (z != null)
 	         {
@@ -226,7 +220,6 @@ public class SplayTrees <T extends Comparable<T>> {
 	             else
 	                 return z;
 	         }
-	         finbusqueda=System.nanoTime();
 	         return null;
 	     }
 	 
@@ -274,29 +267,7 @@ public class SplayTrees <T extends Comparable<T>> {
 	             System.out.print(r.element +" ");
 	         }
 	     }     
-	 
-public long tiempoInsercion(){
-	return tfinInsert-tinicioInsert;
-	
-	
-}
-public  long tiempoBorrado(){
-	return (tinicioborrado-tfinborrado);
-	}
-public long tiempoBusqueda(){
-	return iniciobusqueda-finbusqueda;
-}
-
- public  static void main(String arv[]){
-	 SplayTrees st= new SplayTrees() ;
-	 
-	 for(int i=1000; i>1; i--){
-		 st.insert(i);	 
-	 }
-	 
-	 System.out.println(st.tiempoInsercion());
-	 
- }}
+ }
 
 
 
