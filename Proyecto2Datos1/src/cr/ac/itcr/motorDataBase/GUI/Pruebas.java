@@ -38,12 +38,17 @@ public class Pruebas {
 			}
 //		System.out.println(ultimo_esquema.nombre);
 		
-		WriteXML xml=new WriteXML();
-		xml.estructurarEsquemas(prueba);
+//		WriteXML xml=new WriteXML();
+//		xml.estructurarEsquemas(prueba);
 		
-		Object tipo;
-		tipo=2.0;
-		System.out.println(tipo.getClass().getTypeName());
+//		Object tipo;
+//		tipo=45454;
+//		System.out.println(tipo.getClass().getTypeName());
+		
+		NodoArbolAVL nodo= new NodoArbolAVL(3);
+		System.out.println(nodo.dato.getClass());
+		
+		
 	}
 	
 	

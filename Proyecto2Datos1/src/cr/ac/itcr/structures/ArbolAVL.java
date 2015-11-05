@@ -1,5 +1,8 @@
 package cr.ac.itcr.structures;
 
+import cr.ac.itcr.motorDataBase.baseDatos.Esquema;
+import cr.ac.itcr.motorDataBase.baseDatos.Indice;
+
 public class ArbolAVL <T extends Comparable<T>> {
 	public NodoArbolAVL<T> raiz;
 	public Object tipo;
@@ -25,6 +28,17 @@ public class ArbolAVL <T extends Comparable<T>> {
 		else{
 			return buscar(d,r.hijoIzquierdo);
 		}
+	}
+	
+	
+	//Agregar esquemas padres
+	public void agregarEsquema(Esquema esquema){
+		this.padres.agregarFinal(esquema);
+	}
+	
+	//Borrar esquema padre
+	public void borrarEsquema(Esquema esquema){
+		this.padres.borrar(esquema);
 	}
 	
 	//Obtener el factor de equilibrio
@@ -133,9 +147,14 @@ public class ArbolAVL <T extends Comparable<T>> {
 			NodoArbolAVL<T> nuevo = new NodoArbolAVL<T>(d);
 			if (raiz==null){
 				raiz=nuevo;
+				this.tipo=d.getClass().getTypeName();
 			}
 			else{
-				raiz=insertarAVL(nuevo,raiz);
+				if((d.getClass().getTypeName().compareTo(tipo.getClass().getTypeName())==0)){
+					raiz=insertarAVL(nuevo,raiz);
+				}else{
+					System.out.println("Error en el tipo de dato");
+				}
 			}
 		}
 		

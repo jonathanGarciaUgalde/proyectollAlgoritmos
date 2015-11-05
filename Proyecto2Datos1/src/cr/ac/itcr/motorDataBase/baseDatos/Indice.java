@@ -1,4 +1,4 @@
-package cr.ac.itcr.motorDataBase.baseDatos;
+npackage cr.ac.itcr.motorDataBase.baseDatos;
 
 import cr.ac.itcr.structures.*;
 

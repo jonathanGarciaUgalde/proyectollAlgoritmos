@@ -1,7 +1,7 @@
 package cr.ac.itcr.structures;
 
 public class NodoArbolAVL<T extends Comparable<T>> {
-	T dato;
+	public T dato;
 	int fe;
 	NodoArbolAVL<T> hijoIzquierdo,hijoDerecho;
 	
