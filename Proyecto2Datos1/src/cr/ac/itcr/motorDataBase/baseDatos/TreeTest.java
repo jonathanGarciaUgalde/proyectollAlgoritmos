@@ -5,12 +5,12 @@ public class TreeTest {
 
 	public static void main(String[] args) {
 		
-		ArbolAVL<Integer> arbol = new ArbolAVL<Integer>();
-		arbol.insertar(5);
-		arbol.insertar(7);
-		arbol.insertar(1);
+		ArbolAVL<Integer> arbol=new ArbolAVL();
 		arbol.insertar(3);
+		System.out.println(arbol.tipo);
+		
 		arbol.insertar(4);
+		System.out.println();
 		arbol.preOrden(arbol.raiz);
 
 	}
