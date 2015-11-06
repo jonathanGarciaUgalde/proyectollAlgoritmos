@@ -36,17 +36,11 @@ public class Pruebas {
 			nodoIterador=(NodoDoble) nodoIterador.siguiente;
 			i++;
 			}
-//		System.out.println(ultimo_esquema.nombre);
+
+
 		
-//		WriteXML xml=new WriteXML();
-//		xml.estructurarEsquemas(prueba);
-		
-//		Object tipo;
-//		tipo=45454;
-//		System.out.println(tipo.getClass().getTypeName());
-		
-		NodoArbolAVL nodo= new NodoArbolAVL(3);
-		System.out.println(nodo.dato.getClass());
+		NodoArbolAVL nodo= new NodoArbolAVL("Hola");
+		System.out.println(nodo.dato.getClass().getTypeName());
 		
 		
 	}

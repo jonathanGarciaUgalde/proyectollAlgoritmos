@@ -146,10 +146,10 @@ public class ArbolAVL <T extends Comparable<T>> {
 		public void insertar (T d){
 			NodoArbolAVL<T> nuevo = new NodoArbolAVL<T>(d);
 			if (raiz==null){
-				raiz=nuevo;
 				this.tipo=d.getClass().getTypeName();
+				raiz=nuevo;
 			}
-			else{
+			else if(raiz!=null){
 				if((d.getClass().getTypeName().compareTo(tipo.getClass().getTypeName())==0)){
 					raiz=insertarAVL(nuevo,raiz);
 				}else{
