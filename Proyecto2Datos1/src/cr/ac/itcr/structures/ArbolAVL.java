@@ -5,7 +5,6 @@ import cr.ac.itcr.motorDataBase.baseDatos.Indice;
 
 public class ArbolAVL <T extends Comparable<T>> {
 	public NodoArbolAVL<T> raiz;
-	public Object tipo;
 	public int largo;
 	public String nombre;
 	public ListaDoble padres;

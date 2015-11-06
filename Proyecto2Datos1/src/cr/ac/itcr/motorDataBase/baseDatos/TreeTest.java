@@ -7,7 +7,7 @@ public class TreeTest {
 		
 		ArbolAVL<Integer> arbol=new ArbolAVL();
 		arbol.insertar(3);
-		System.out.println(arbol.tipo);
+
 		
 		arbol.insertar(4);
 		System.out.println();
