@@ -12,11 +12,11 @@ public class Pruebas {
 		// Esto es solo para probar 
 		
 		ListaDoble prueba= new ListaDoble();
-		Esquema base1= new Esquema("Base1", "Mis Documentos", "kldjfdvndufh656<<<d");
-		Esquema base2= new Esquema("Base2", "Mis Documentos", "kldjfdvndufh656<<<d");
-		Esquema base3= new Esquema("Base3", "Mis Documentos", "kldjfdvndufh656<<<d");
-		Esquema base4= new Esquema("Base4", "Mis Documentos", "kldjfdvndufh656<<<d");
-		Esquema base5= new Esquema("Base5", "Mis Documentos", "kldjfdvndufh656<<<d");
+		Esquema base1= new Esquema("Base1", "Mis Documentos");
+		Esquema base2= new Esquema("Base2", "Mis Documentos");
+		Esquema base3= new Esquema("Base3", "Mis Documentos");
+		Esquema base4= new Esquema("Base4", "Mis Documentos");
+		Esquema base5= new Esquema("Base5", "Mis Documentos");
 		prueba.agregarFinal(base1);
 		prueba.agregarFinal(base2);
 		prueba.agregarFinal(base3);

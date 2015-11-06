@@ -1,7 +1,6 @@
 package cr.ac.itcr.structures;
 
 import cr.ac.itcr.motorDataBase.baseDatos.Esquema;
-import cr.ac.itcr.motorDataBase.baseDatos.Indice;
 
 public class ArbolAVL <T extends Comparable<T>> {
 	public NodoArbolAVL<T> raiz;
