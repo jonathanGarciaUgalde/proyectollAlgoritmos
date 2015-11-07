@@ -5,6 +5,7 @@ import org.w3c.dom.Element;
 import cr.ac.itcr.motorDataBase.Logica.*;
 import cr.ac.itcr.motorDataBase.baseDatos.*;
 import cr.ac.itcr.structures.*;
+import cr.ac.itcr.motorDataBase.GUI.interfaz;;
 
 public class Pruebas {
 
@@ -42,8 +43,20 @@ public class Pruebas {
 		NodoArbolAVL nodo= new NodoArbolAVL("Hola");
 		System.out.println(nodo.dato.getClass().getTypeName());
 		
+		ArbolAVL<Integer> arbol = new ArbolAVL();
+		arbol.insertar(4);
+		arbol.insertar(5);
+		arbol.insertar(6);
+		arbol.insertar(7);
+
+		WriteXML xml=new WriteXML();
+		xml.escribirEsquema(base1);
 		
+		new interfaz();
+	
 	}
+	
+	
 	
 	
 	

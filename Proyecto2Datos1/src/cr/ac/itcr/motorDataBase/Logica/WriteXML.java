@@ -119,4 +119,39 @@ public class WriteXML {
 		  tfe.printStackTrace();
 		}
 	}
+	
+	public  void escribirEsquema(Esquema esquema){
+		try {
+			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+			Document doc = docBuilder.newDocument();
+			
+			Element rootElement = doc.createElement(esquema.nombre);
+			doc.appendChild(rootElement);
+
+			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+			Transformer transformer = transformerFactory.newTransformer();
+			DOMSource source = new DOMSource(doc);
+			StreamResult result = new StreamResult(new File(esquema.localizacion));
+
+			// Output to console for testing
+			// StreamResult result = new StreamResult(System.out);
+
+			transformer.transform(source, result);
+
+			System.out.println("File saved!");	
+			
+		} catch (ParserConfigurationException pce) {
+		  pce.printStackTrace();
+		} catch (TransformerException tfe) {
+		  tfe.printStackTrace();
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
 }
