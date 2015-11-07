@@ -27,14 +27,4 @@ public class Esquema {
 		return join;
 	}
 	
-	public void agregarIndice(Indice indice){
-		this.indices.agregarFinal(indice);
-	}
-	
-	public void borrarIndice(Indice indice){
-		this.indices.borrar(indice);
-	}
-	
-
-	
 }

@@ -8,7 +8,6 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import cr.ac.itcr.motorDataBase.baseDatos.Esquema;
-import cr.ac.itcr.motorDataBase.baseDatos.Indice;
 import cr.ac.itcr.structures.*;
 
 import org.w3c.dom.*;

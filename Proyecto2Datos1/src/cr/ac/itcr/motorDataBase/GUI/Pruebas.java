@@ -23,7 +23,6 @@ public class Pruebas {
 		prueba.agregarFinal(base3);
 		prueba.agregarFinal(base4);
 		prueba.agregarFinal(base5);
-		Indice Nombre=new Indice("long", 7, "Nombre");
 
 		System.out.print(prueba.mostrarInicioFin()); // Aquí estoy imprimiendo los esquemas
 
