@@ -92,7 +92,7 @@ public class ServidorHilo extends Thread {
     				break;
     			}
     			else{
-//    				Esquema NuevoEsquema = new Esquema(msg);
+    				Esquema NuevoEsquema = new Esquema(msg);
     				
     			}
     		}
