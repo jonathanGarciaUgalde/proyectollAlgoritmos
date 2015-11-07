@@ -1,4 +1,5 @@
  /**
+ /**
   *  Esta   es la  clase encargada de  crear un hilo   para que se puedan conectar multiples  y este extiende  del hilo de conexion 
   *  clientes al servidor
   *  
@@ -13,6 +14,8 @@
 
 package cr.ac.itcr.server;
 
+import cr.ac.itcr.motorDataBase.baseDatos.*;
+import cr.ac.itcr.structures.*;
 import java.io.*;
 //import org.json.simple.*;
 //import org.json.simple.parser.*;
@@ -68,13 +71,39 @@ public class ServidorHilo extends Thread {
 		        	if (msg.equals("conectar")){
 		        		dos.writeUTF("Conectado");
 		        	}
+		        	else if (msg.equals("Crear Esquema")){
+		        		crear_esquema();
+		        	}
 		        }
 		    }
         	catch(Exception e){
  	       	}
         }
     }
+    
 
+    
+    public void crear_esquema(){
+    	String msg = "";
+    	try{
+    		while(true){
+    			msg = dis.readUTF();
+    			if (msg.equals("Desconectar")){
+    				break;
+    			}
+    			else{
+//    				Esquema NuevoEsquema = new Esquema(msg);
+    				
+    			}
+    		}
+    	}
+    	catch(Exception e){
+    		System.out.println("Error al leer");
+    	}
+    }
+}
+
+    
 //    public void leer(){
 //    	String texto =""; 
 //    	
@@ -144,4 +173,4 @@ public class ServidorHilo extends Thread {
 //    		
 //    	}
 //    }
-}
+
