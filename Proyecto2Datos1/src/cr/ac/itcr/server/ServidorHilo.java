@@ -28,6 +28,9 @@ public class ServidorHilo extends Thread {
     private DataOutputStream dos;
     private DataInputStream dis;
     private int idSessio;
+    private Esquema NuevoEsquema;
+    private ListaDoble ListaEsquemas;
+    private ArbolAVL NuevoIndice;
     
     //constructor  que inicializar el socket y asigna  el id al numero de sesión 
     public ServidorHilo(Socket socket, int id) {
@@ -74,6 +77,9 @@ public class ServidorHilo extends Thread {
 		        	else if (msg.equals("Crear Esquema")){
 		        		crear_esquema();
 		        	}
+		        	else if (msg.equals("Crear Índice")){
+		        		crear_indice();
+		        	}
 		        }
 		    }
         	catch(Exception e){
@@ -91,9 +97,39 @@ public class ServidorHilo extends Thread {
     			if (msg.equals("Desconectar")){
     				break;
     			}
-    			else{
-    				Esquema NuevoEsquema = new Esquema(msg);
-    				
+    			else if (msg!=null){
+    				this.NuevoEsquema = new Esquema(msg,"Mis Documentos");
+    				this.ListaEsquemas.agregarFinal(this.NuevoEsquema);
+    				break;
+    			}
+    		}
+    	}
+    	catch(Exception e){
+    		System.out.println("Error al leer");
+    	}
+    }
+    public void crear_indice(){
+    	String msg = "";
+    	try{
+    		while(true){
+    			msg = dis.readUTF();
+    			if (msg.equals("Desconectar")){
+    				break;
+    			}
+    			else if (msg!=null){
+    				if (this.ListaEsquemas.buscar(msg).equals(msg)){
+    					while(true){
+    		    			msg = dis.readUTF();
+    		    			if (msg.equals("Desconectar")){
+    		    				break;
+    		    			}
+    		    			else if (msg!=null){
+        		    			this.NuevoIndice= new ArbolAVL<String> (msg);
+        		    			break;
+    		    			}
+    					}
+    					break;
+    				}
     			}
     		}
     	}
