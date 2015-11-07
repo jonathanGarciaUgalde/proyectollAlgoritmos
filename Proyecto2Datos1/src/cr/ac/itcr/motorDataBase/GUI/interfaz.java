@@ -20,6 +20,13 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.table.DefaultTableModel;
 
+
+/**
+ * Esta interfaz está basada en el modelo creado por Juan Jose Grajeda Cuesi
+ * 
+ * @return Sacado de la página: http://aprendiendo-software.blogspot.com/2012/01/creando-tablas.html
+ * 
+ */
 public class interfaz extends JFrame implements ActionListener {
 	DefaultListModel	dlmLista_tablas;
 	JList				jlTablas;
@@ -34,8 +41,9 @@ public class interfaz extends JFrame implements ActionListener {
 	JFileChooser		jfcArchivo;
 	
 	
+	
 	public interfaz(){
-		setTitle( "Trabajando con tablas" );
+		setTitle( "inmemdb" );
 		setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 		setLayout( new BorderLayout() );
 		setSize( 525, 400 );

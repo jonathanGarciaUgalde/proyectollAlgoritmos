@@ -43,16 +43,25 @@ public class Pruebas {
 		NodoArbolAVL nodo= new NodoArbolAVL("Hola");
 		System.out.println(nodo.dato.getClass().getTypeName());
 		
-		ArbolAVL<Integer> arbol = new ArbolAVL();
+		ArbolAVL<Integer> arbol = new ArbolAVL("Nombres");
 		arbol.insertar(4);
 		arbol.insertar(5);
 		arbol.insertar(6);
 		arbol.insertar(7);
-
+		
+		System.out.print(arbol.raiz.dato);
+		System.out.println();
+		System.out.println();
+		System.out.print(arbol.retornar_valores(arbol.raiz));
+		System.out.println();
+		System.out.println();
 		WriteXML xml=new WriteXML();
 		xml.escribirEsquema(base1);
 		
-		new interfaz();
+		ReadXML xml2=new ReadXML();
+		xml2.agregarIndice(arbol, base1);
+//		
+//		new interfaz();
 	
 	}
 	

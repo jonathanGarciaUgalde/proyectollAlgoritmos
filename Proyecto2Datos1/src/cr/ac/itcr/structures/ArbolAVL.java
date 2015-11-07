@@ -8,7 +8,8 @@ public class ArbolAVL <T extends Comparable<T>> {
 	public String nombre;
 	public ListaDoble padres;
 	
-	public ArbolAVL(){
+	public ArbolAVL(String nombre){
+		this.nombre=nombre;
 		raiz=null;
 	}
 	
@@ -177,6 +178,15 @@ public class ArbolAVL <T extends Comparable<T>> {
 				System.out.println(r.dato+", ");
 			}
 		}
-		
+	
+		//Método para recorrer el árbol en postOrden
+		public String retornar_valores(NodoArbolAVL<T> r){
+			if (r!=null){
+				retornar_valores(r.hijoIzquierdo);
+				retornar_valores(r.hijoDerecho);
+				return (r.dato.toString());
+			}
+			return null;
+		}
 		
 }
